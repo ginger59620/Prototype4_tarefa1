@@ -21,6 +21,11 @@ public class Enemies : MonoBehaviour
         //Normalize the magniture of this vector, so it doesn't matter the distance it is from the player
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
         
-        enemyRb.AddForce(lookDirection * speed);   
+        enemyRb.AddForce(lookDirection * speed);
+
+        if (transform.position.y < -1)
+        {
+            Destroy(gameObject);
+        }
     }
 }
